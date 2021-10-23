@@ -101,7 +101,7 @@ class _ThirdPageState extends State<ThirdPage> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(w / 1.36, h / 13.18),
+                    fixedSize: Size(w / 1.36, h / 12.5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),

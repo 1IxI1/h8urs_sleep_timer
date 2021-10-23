@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -8,14 +9,17 @@ import 'package:h8urs_sleep_timer/pages/third.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
+import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 
-void main() {
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+
+  var isInited = await AndroidAlarmManager.initialize();
+  print(isInited);
+
   runApp(MyApp());
 }
-
-const pi2 = 3.14 * 2;
 
 class MyApp extends StatelessWidget {
   @override
@@ -69,7 +73,10 @@ class _SecondPageState extends State<SecondPage> {
       case (0):
         return 5;
       case (5):
-        return 10;
+        return 1; // 10
+
+      case (1): //
+        return 10; //
     }
     return 10;
   }
@@ -81,7 +88,10 @@ class _SecondPageState extends State<SecondPage> {
       case (9):
         return 7;
       case (7):
-        return 8;
+        return 0; // 9
+
+      case (0): // TODO: remove lines
+        return 8; //
     }
     return 8;
   }
@@ -109,6 +119,7 @@ class _SecondPageState extends State<SecondPage> {
     var alarm = now.add(hour: sleeptime, minute: bedtime);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -246,8 +257,9 @@ class _SecondPageState extends State<SecondPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    //print(h);
+                  onPressed: () async {
+                    FlutterAlarmClock.createAlarm(alarm.hour, alarm.minute);
+
                     Navigator.push(context, FadeRoute(page: ThirdPage()));
                   },
                   child: Text(
@@ -258,7 +270,7 @@ class _SecondPageState extends State<SecondPage> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(w / 1.36, h / 13.18),
+                    fixedSize: Size(w / 1.36, h / 12.5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),

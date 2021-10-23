@@ -1,9 +1,13 @@
 # This is a generated file; do not edit or check into version control.
-android_alarm_manager_plus=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/android_alarm_manager_plus-1.3.0/
+android_alarm_manager_plus=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/android_alarm_manager_plus-2.0.2/
 file_picker=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-4.1.1/
+flutter_alarm_clock=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_alarm_clock-0.0.1/
 flutter_plugin_android_lifecycle=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.3/
 path_provider=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.5/
 path_provider_linux=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.0/
 path_provider_macos=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2/
 path_provider_windows=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/
 permission_handler=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-8.1.6/
+shared_preferences=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.7+3/
+shared_preferences_macos=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+11/
+shared_preferences_web=/home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+7/

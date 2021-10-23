@@ -4,7 +4,7 @@ import 'package:h8urs_sleep_timer/pages/first.dart';
 import 'package:h8urs_sleep_timer/pages/second.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,

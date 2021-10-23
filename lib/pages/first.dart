@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:h8urs_sleep_timer/pages/second.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
@@ -31,8 +30,6 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
-  late Permission permission;
-  PermissionStatus permissionStatus = PermissionStatus.denied;
   var _defaultTextStyle = GoogleFonts.openSans(
     textStyle: TextStyle(
       fontSize: 48,
@@ -47,6 +44,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -100,7 +98,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(w / 1.36, h / 13.18),
+                    fixedSize: Size(w / 1.36, h / 12.5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),

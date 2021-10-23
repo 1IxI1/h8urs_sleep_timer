@@ -13,6 +13,5 @@ dev/fluttercommunity/plus/androidalarmmanager/AndroidAlarmManagerPlugin.java
  dev.fluttercommunity.plus.androidalarmmanager.AndroidAlarmManagerPlugin$PeriodicRequest
 dev/fluttercommunity/plus/androidalarmmanager/AlarmService.java
  dev.fluttercommunity.plus.androidalarmmanager.AlarmService
- dev.fluttercommunity.plus.androidalarmmanager.AlarmService$1
 dev/fluttercommunity/plus/androidalarmmanager/AlarmBroadcastReceiver.java
  dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver
