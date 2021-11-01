@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -14,10 +13,6 @@ import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-
-  var isInited = await AndroidAlarmManager.initialize();
-  print(isInited);
-
   runApp(MyApp());
 }
 

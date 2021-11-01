@@ -2,12 +2,6 @@
   "configVersion": 2,
   "packages": [
     {
-      "name": "android_alarm_manager_plus",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/android_alarm_manager_plus-2.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "async",
       "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2",
       "packageUri": "lib/",
@@ -44,6 +38,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "dots_indicator",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/dots_indicator-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "ffi",
       "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.1.2",
       "packageUri": "lib/",
@@ -52,12 +52,6 @@
     {
       "name": "file",
       "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "file_picker",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-4.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -74,20 +68,8 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "flutter_plugin_android_lifecycle",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "flutter_svg",
       "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.22.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "flutter_web_plugins",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -110,8 +92,8 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "js",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "name": "introduction_screen",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/introduction_screen-2.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -201,9 +183,9 @@
     },
     {
       "name": "petitparser",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.3.0",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.13"
     },
     {
       "name": "platform",
@@ -228,30 +210,6 @@
       "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "shared_preferences",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.7+3",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_macos",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+11",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_platform_interface",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_platform_interface-1.0.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_web",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+7",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
     },
     {
       "name": "sky_engine",
@@ -290,6 +248,30 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-2.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "webview_flutter_android",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_android-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "webview_flutter_platform_interface",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_platform_interface-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "webview_flutter_wkwebview",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_wkwebview-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "win32",
       "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.2.9",
       "packageUri": "lib/",
@@ -303,9 +285,9 @@
     },
     {
       "name": "xml",
-      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.3.0",
+      "rootUri": "file:///home/victor/Downloads/flutter_linux_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.12"
     },
     {
       "name": "h8urs_sleep_timer",
@@ -314,7 +296,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-10-23T18:20:15.517571Z",
+  "generated": "2021-10-31T20:17:01.401759Z",
   "generator": "pub",
   "generatorVersion": "2.14.3"
 }

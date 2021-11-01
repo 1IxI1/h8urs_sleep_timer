@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:h8urs_sleep_timer/pages/second.dart';
+import 'package:h8urs_sleep_timer/pages/fourth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -89,6 +91,10 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   onPressed: () {
                     //print(h);
                     Navigator.push(context, FadeRoute(page: SecondPage()));
+                  },
+                  onLongPress: () {
+                    //print(h);
+                    Navigator.push(context, FadeRoute(page: FourthPage()));
                   },
                   child: Text(
                     'Yeah',
