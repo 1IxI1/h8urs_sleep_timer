@@ -18,13 +18,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {},
-      home: ThirdPage(),
+      home: ThirdPage(
+        sleeptime: 0,
+        bedtime: 0,
+      ),
     );
   }
 }
 
 class ThirdPage extends StatefulWidget {
-  ThirdPage({Key? key}) : super(key: key);
+  final int bedtime;
+  final int sleeptime;
+  ThirdPage({Key? key, required this.bedtime, required this.sleeptime})
+      : super(key: key);
 
   @override
   _ThirdPageState createState() => _ThirdPageState();
@@ -93,7 +99,12 @@ class _ThirdPageState extends State<ThirdPage> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, FadeRoute(page: FourthPage()));
+                    Navigator.push(
+                        context,
+                        FadeRoute(
+                            page: FourthPage(
+                                sleeptime: widget.sleeptime,
+                                bedtime: widget.bedtime)));
                   },
                   child: Text(
                     'Zzzz',

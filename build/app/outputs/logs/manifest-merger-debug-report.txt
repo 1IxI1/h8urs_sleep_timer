@@ -6,6 +6,7 @@ INJECTED from /home/victor/Projects/h8urs_sleep_timer/android/app/src/main/Andro
 INJECTED from /home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:1:1-41:12
 MERGED from /home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:1:1-41:12
 MERGED from [:flutter_alarm_clock] /home/victor/Projects/h8urs_sleep_timer/build/flutter_alarm_clock/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:external_app_launcher] /home/victor/Projects/h8urs_sleep_timer/build/external_app_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] /home/victor/Projects/h8urs_sleep_timer/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:permission_handler] /home/victor/Projects/h8urs_sleep_timer/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:webview_flutter_android] /home/victor/Projects/h8urs_sleep_timer/build/webview_flutter_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -100,6 +101,8 @@ INJECTED from /home/victor/Projects/h8urs_sleep_timer/android/app/src/main/Andro
 INJECTED from /home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml
 MERGED from [:flutter_alarm_clock] /home/victor/Projects/h8urs_sleep_timer/build/flutter_alarm_clock/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_alarm_clock] /home/victor/Projects/h8urs_sleep_timer/build/flutter_alarm_clock/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:external_app_launcher] /home/victor/Projects/h8urs_sleep_timer/build/external_app_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:external_app_launcher] /home/victor/Projects/h8urs_sleep_timer/build/external_app_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /home/victor/Projects/h8urs_sleep_timer/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /home/victor/Projects/h8urs_sleep_timer/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:permission_handler] /home/victor/Projects/h8urs_sleep_timer/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44

@@ -6,7 +6,7 @@ import 'package:h8urs_sleep_timer/pages/fourth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
-import 'package:introduction_screen/introduction_screen.dart';
+import 'package:h8urs_sleep_timer/themes.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -14,12 +14,29 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    currentTheme.addListener(() {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {},
       home: FirstPage(),
+      theme: CustomTheme.lightTheme,
+      darkTheme: CustomTheme.darkTheme,
+      themeMode: currentTheme.currenTheme,
     );
   }
 }
@@ -94,7 +111,13 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   },
                   onLongPress: () {
                     //print(h);
-                    Navigator.push(context, FadeRoute(page: FourthPage()));
+                    Navigator.push(
+                        context,
+                        FadeRoute(
+                            page: FourthPage(
+                          sleeptime: 8,
+                          bedtime: 0,
+                        )));
                   },
                   child: Text(
                     'Yeah',
