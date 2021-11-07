@@ -94,9 +94,11 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                 ),
                 SizedBox(height: h / 13.61),
-                SvgPicture.asset(
-                  'ass/undraw_starry_window_ppm0.svg',
-                  height: h / 3,
+                AspectRatio(
+                  aspectRatio: 3 / 2,
+                  child: SvgPicture.asset(
+                    'ass/undraw_starry_window_ppm0.svg',
+                  ),
                 ),
                 SizedBox(height: h / 7.15),
               ],

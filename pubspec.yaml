@@ -33,9 +33,7 @@ dependencies:
   introduction_screen: ^2.1.0
   webview_flutter: ^2.1.2
   external_app_launcher: ^2.0.1
-  device_apps:
-  android_intent:
-  url_launcher:
+  
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.

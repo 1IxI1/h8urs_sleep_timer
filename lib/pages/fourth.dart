@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -7,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
+// ignore: unused_import
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
 import 'package:h8urs_sleep_timer/adds/balls.dart';
 import 'package:external_app_launcher/external_app_launcher.dart';

@@ -4,9 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 CustomTheme currentTheme = CustomTheme();
 
 class CustomTheme with ChangeNotifier {
-  static bool _isDarkTheme = true;
+  static double w = MediaQuery.of(context).size.width;
+  static double h = MediaQuery.of(context).size.height;
+
+  static bool _isDarkTheme = false;
 
   ThemeMode get currenTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
+
+  static BuildContext get context => context;
   void toggleTheme() {
     _isDarkTheme = !_isDarkTheme;
     notifyListeners();
@@ -36,8 +41,18 @@ class CustomTheme with ChangeNotifier {
           textStyle: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w600,
-            color: Colors.black,
+            color: Colors.white,
           ),
+        ),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          fixedSize: Size(w / 1.36, h / 12.5),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
+          elevation: 0,
+          primary: Color(0xFF250BC5),
         ),
       ),
     );

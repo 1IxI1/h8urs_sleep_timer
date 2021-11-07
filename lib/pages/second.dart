@@ -95,125 +95,136 @@ class _SecondPageState extends State<SecondPage> {
             ),
             SizedBox(height: h / 16.37),
             Container(
-              child: Stack(
-                children: [
-                  CircularPercentIndicator(
-                    radius: w / 1.31 - 20,
-                    lineWidth: 20.0,
-                    animation: false,
-                    backgroundColor: Colors.black26,
-                    progressColor: Colors.transparent,
-                  ),
-                  CircularPercentIndicator(
-                    radius: w / 1.31 - 20,
-                    lineWidth: 20.0,
-                    animation: false,
-                    backgroundColor: Colors.transparent,
-                    percent: sleeptime / 12 + bedtime / (12 * 60),
-                    startAngle:
-                        now.hour.toDouble() * 30 + now.minute.toDouble() * 0.5,
-                    progressColor: Color(0xFFFFC93E),
-                    circularStrokeCap: CircularStrokeCap.round,
-                  ),
-                  CircularPercentIndicator(
-                    radius: w / 1.31 - 20,
-                    lineWidth: 20.0,
-                    animation: false,
-                    backgroundColor: Colors.transparent,
-                    percent: sleeptime / 12,
-                    startAngle:
-                        now.hour.toDouble() * 30 + now.minute.toDouble() * 0.5,
-                    progressColor: Color(0xFF250BC5),
-                    circularStrokeCap: CircularStrokeCap.round,
-                    center: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+              child: AspectRatio(
+                aspectRatio: 3 / 2.15,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Stack(
                       children: [
-                        Text(
-                          "${now.hour < 10 ? '0' + now.hour.toString() : now.hour.toString()}:${now.minute < 10 ? '0' + now.minute.toString() : now.minute.toString()}",
-                          style: _defaultTextStyle,
+                        CircularPercentIndicator(
+                          radius: w / 1.31 - 20,
+                          lineWidth: 20.0,
+                          animation: false,
+                          backgroundColor: Colors.black26,
+                          progressColor: Colors.transparent,
                         ),
-                        SizedBox(height: 1.5),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                              child: Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '$sleeptime',
-                                      style: GoogleFonts.openSans(
-                                        textStyle: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600,
-                                          color: Color(0xFF250BC5),
-                                        ),
+                        CircularPercentIndicator(
+                          radius: w / 1.31 - 20,
+                          lineWidth: 20.0,
+                          animation: false,
+                          backgroundColor: Colors.transparent,
+                          percent: sleeptime / 12 + bedtime / (12 * 60),
+                          startAngle: now.hour.toDouble() * 30 +
+                              now.minute.toDouble() * 0.5,
+                          progressColor: Color(0xFFFFC93E),
+                          circularStrokeCap: CircularStrokeCap.round,
+                        ),
+                        CircularPercentIndicator(
+                          radius: w / 1.31 - 20,
+                          lineWidth: 20.0,
+                          animation: false,
+                          backgroundColor: Colors.transparent,
+                          percent: sleeptime / 12,
+                          startAngle: now.hour.toDouble() * 30 +
+                              now.minute.toDouble() * 0.5,
+                          progressColor: Color(0xFF250BC5),
+                          circularStrokeCap: CircularStrokeCap.round,
+                          center: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${now.hour < 10 ? '0' + now.hour.toString() : now.hour.toString()}:${now.minute < 10 ? '0' + now.minute.toString() : now.minute.toString()}",
+                                style: _defaultTextStyle,
+                              ),
+                              SizedBox(height: 1.5),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    child: Container(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            '$sleeptime',
+                                            style: GoogleFonts.openSans(
+                                              textStyle: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xFF250BC5),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      height: 25,
+                                      width: 25,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        //color: Colors.black26,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                height: 25,
-                                width: 25,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  //color: Colors.black26,
-                                ),
-                              ),
-                              onTap: () {
-                                setState(() {
-                                  sleeptime = SleepCorrect(sleeptime);
-                                });
-                              },
-                            ),
-                            SizedBox(width: 5),
-                            Text('+',
-                                style: TextStyle(
-                                    fontSize: 18, color: Color(0xFF250BC5))),
-                            SizedBox(width: 5),
-                            GestureDetector(
-                              child: Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '$bedtime',
-                                      style: GoogleFonts.openSans(
-                                        textStyle: TextStyle(
+                                    onTap: () {
+                                      setState(() {
+                                        sleeptime = sleepCorrect(sleeptime);
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text('+',
+                                      style: TextStyle(
                                           fontSize: 18,
-                                          fontWeight: FontWeight.w600,
-                                          color: Color(0xFF250BC5),
-                                        ),
+                                          color: Color(0xFF250BC5))),
+                                  SizedBox(width: 5),
+                                  GestureDetector(
+                                    child: Container(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            '$bedtime',
+                                            style: GoogleFonts.openSans(
+                                              textStyle: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xFF250BC5),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      height: 25,
+                                      width: 25,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        //color: Colors.black26,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                height: 25,
-                                width: 25,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  //color: Colors.black26,
-                                ),
+                                    onTap: () {
+                                      setState(() {
+                                        bedtime = bedCorrect(bedtime);
+                                      });
+                                    },
+                                  ),
+                                ],
                               ),
-                              onTap: () {
-                                setState(() {
-                                  bedtime = BedCorrect(bedtime);
-                                });
-                              },
-                            ),
-                          ],
+                              Text(
+                                "${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}",
+                                style: _defaultTextStyle,
+                              )
+                            ],
+                          ),
                         ),
-                        Text(
-                          "${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}",
-                          style: _defaultTextStyle,
-                        )
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+              padding: EdgeInsets.only(bottom: h / 10),
             ),
-            SizedBox(height: h / 7.74),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

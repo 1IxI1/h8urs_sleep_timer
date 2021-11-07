@@ -1,4 +1,4 @@
-int BedCorrect(dynamic bedtime) {
+int bedCorrect(dynamic bedtime) {
   switch (bedtime) {
     case (10):
       return 15;
@@ -19,7 +19,7 @@ int BedCorrect(dynamic bedtime) {
   return 10;
 }
 
-int SleepCorrect(dynamic sleeptime) {
+int sleepCorrect(dynamic sleeptime) {
   switch (sleeptime) {
     case (8):
       return 9;
