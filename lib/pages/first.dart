@@ -34,9 +34,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: FirstPage(),
-      theme: CustomTheme.lightTheme,
-      darkTheme: CustomTheme.darkTheme,
-      themeMode: currentTheme.currenTheme,
     );
   }
 }
@@ -63,7 +60,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -82,7 +79,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                           textStyle: TextStyle(
                             fontSize: 48,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xFF250BC5),
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -113,13 +110,11 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   },
                   onLongPress: () {
                     //print(h);
-                    Navigator.push(
-                        context,
-                        FadeRoute(
-                            page: FourthPage(
-                          sleeptime: 8,
-                          bedtime: 0,
-                        )));
+                    // Navigator.push(context,
+                    //     FadeRoute(page: FourthPage(sleeptime: 8, bedtime: 0)));
+                    setState(() {
+                      currentTheme.toggleTheme();
+                    });
                   },
                   child: Text(
                     'Yeah',
@@ -134,7 +129,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(100),
                     ),
                     elevation: 0,
-                    primary: Color(0xFF250BC5),
+                    primary: Theme.of(context).primaryColor,
                   ),
                 ),
                 SizedBox(

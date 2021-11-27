@@ -1,4 +1,4 @@
-#Sat Nov 06 13:21:36 MSK 2021
+#Sat Nov 27 12:03:01 MSK 2021
 base.0=/home/victor/Projects/h8urs_sleep_timer/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
