@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
     currentTheme.addListener(() {
       setState(() {});
     });
@@ -46,18 +47,17 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
-  var _defaultTextStyle = GoogleFonts.openSans(
-    textStyle: TextStyle(
-      fontSize: 48,
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool darkModeOn = brightness == Brightness.dark;
+
+    var svgWindow = SvgPicture.asset((darkModeOn)
+        ? 'ass/undraw_starry_window_ppm0_dark.svg'
+        : 'ass/undraw_starry_window_ppm0.svg');
 
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -71,7 +71,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     text: 'You want to\nsleep ',
-                    style: _defaultTextStyle,
+                    style: Theme.of(context).textTheme.headline1,
                     children: [
                       TextSpan(
                         text: '8',
@@ -85,19 +85,17 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ),
                       TextSpan(
                         text: ' hours',
-                        style: _defaultTextStyle,
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: h / 13.61),
                 AspectRatio(
-                  aspectRatio: 3 / 2,
-                  child: SvgPicture.asset(
-                    'ass/undraw_starry_window_ppm0.svg',
-                  ),
+                  aspectRatio: 2.8 / 2,
+                  child: svgWindow,
                 ),
-                SizedBox(height: h / 7.15),
+                SizedBox(height: h / 7.5),
               ],
             ),
             Column(
@@ -109,12 +107,12 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     Navigator.push(context, FadeRoute(page: SecondPage()));
                   },
                   onLongPress: () {
-                    //print(h);
                     // Navigator.push(context,
                     //     FadeRoute(page: FourthPage(sleeptime: 8, bedtime: 0)));
                     setState(() {
                       currentTheme.toggleTheme();
                     });
+                    print(currentTheme.currenTheme);
                   },
                   child: Text(
                     'Yeah',

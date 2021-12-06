@@ -80,7 +80,7 @@ class _SecondPageState extends State<SecondPage> {
     var alarm = now.add(hour: sleeptime, minute: bedtime);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -89,7 +89,7 @@ class _SecondPageState extends State<SecondPage> {
               width: w / 1.18,
               child: Text(
                 'If you will set\nalarm now then it\nwill ring at ${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}',
-                style: _defaultTextStyle,
+                style: Theme.of(context).textTheme.headline2,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -104,14 +104,15 @@ class _SecondPageState extends State<SecondPage> {
                       children: [
                         CircularPercentIndicator(
                           radius: w / 1.31 - 20,
-                          lineWidth: 20.0,
+                          lineWidth: w / 20,
                           animation: false,
-                          backgroundColor: Colors.black26,
+                          backgroundColor:
+                              Theme.of(context).unselectedWidgetColor,
                           progressColor: Colors.transparent,
                         ),
                         CircularPercentIndicator(
                           radius: w / 1.31 - 20,
-                          lineWidth: 20.0,
+                          lineWidth: w / 20,
                           animation: false,
                           backgroundColor: Colors.transparent,
                           percent: sleeptime / 12 + bedtime / (12 * 60),
@@ -122,20 +123,20 @@ class _SecondPageState extends State<SecondPage> {
                         ),
                         CircularPercentIndicator(
                           radius: w / 1.31 - 20,
-                          lineWidth: 20.0,
+                          lineWidth: w / 20,
                           animation: false,
                           backgroundColor: Colors.transparent,
                           percent: sleeptime / 12,
                           startAngle: now.hour.toDouble() * 30 +
                               now.minute.toDouble() * 0.5,
-                          progressColor: Color(0xFF250BC5),
+                          progressColor: Theme.of(context).primaryColor,
                           circularStrokeCap: CircularStrokeCap.round,
                           center: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 "${now.hour < 10 ? '0' + now.hour.toString() : now.hour.toString()}:${now.minute < 10 ? '0' + now.minute.toString() : now.minute.toString()}",
-                                style: _defaultTextStyle,
+                                style: Theme.of(context).textTheme.headline2,
                               ),
                               SizedBox(height: 1.5),
                               Row(
@@ -153,7 +154,8 @@ class _SecondPageState extends State<SecondPage> {
                                               textStyle: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.w600,
-                                                color: Color(0xFF250BC5),
+                                                color: Theme.of(context)
+                                                    .primaryColor,
                                               ),
                                             ),
                                           ),
@@ -173,10 +175,13 @@ class _SecondPageState extends State<SecondPage> {
                                     },
                                   ),
                                   SizedBox(width: 5),
-                                  Text('+',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Color(0xFF250BC5))),
+                                  Text(
+                                    '+',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
                                   SizedBox(width: 5),
                                   GestureDetector(
                                     child: Container(
@@ -190,7 +195,8 @@ class _SecondPageState extends State<SecondPage> {
                                               textStyle: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.w600,
-                                                color: Color(0xFF250BC5),
+                                                color: Theme.of(context)
+                                                    .primaryColor,
                                               ),
                                             ),
                                           ),
@@ -213,7 +219,7 @@ class _SecondPageState extends State<SecondPage> {
                               ),
                               Text(
                                 "${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}",
-                                style: _defaultTextStyle,
+                                style: Theme.of(context).textTheme.headline2,
                               )
                             ],
                           ),
@@ -253,7 +259,7 @@ class _SecondPageState extends State<SecondPage> {
                       borderRadius: BorderRadius.circular(100),
                     ),
                     elevation: 0,
-                    primary: Color(0xFF250BC5),
+                    primary: Theme.of(context).primaryColor,
                   ),
                 ),
                 SizedBox(

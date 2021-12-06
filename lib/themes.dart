@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 CustomTheme currentTheme = CustomTheme();
@@ -18,6 +19,7 @@ class CustomTheme with ChangeNotifier {
       primaryColor: Color(0xFF250BC5),
       backgroundColor: Colors.white,
       scaffoldBackgroundColor: Colors.white,
+      unselectedWidgetColor: Colors.black26,
       textTheme: TextTheme(
         headline1: GoogleFonts.openSans(
           textStyle: TextStyle(
@@ -56,21 +58,22 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get darkTheme {
     return ThemeData(
       primaryColor: Color(0xFF3918FF),
-      backgroundColor: Colors.black38,
+      backgroundColor: Color(0xFF1D1D1D),
       scaffoldBackgroundColor: Color(0xFF1D1D1D),
+      unselectedWidgetColor: Color(0xFFBFBFBF).withOpacity(0.33),
       textTheme: TextTheme(
         headline1: GoogleFonts.openSans(
           textStyle: TextStyle(
             fontSize: 48,
             fontWeight: FontWeight.w600,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         headline2: GoogleFonts.openSans(
           textStyle: TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.w600,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         button: GoogleFonts.openSans(

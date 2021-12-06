@@ -51,6 +51,13 @@ class _ThirdPageState extends State<ThirdPage> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool darkModeOn = brightness == Brightness.dark;
+
+    var svgBaba = SvgPicture.asset(
+        (darkModeOn) ? 'ass/sleep_baba_dark.svg' : 'ass/sleep_baba.svg',
+        width: w / 1.21);
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -71,7 +78,7 @@ class _ThirdPageState extends State<ThirdPage> {
                               width: w / 1.56,
                               child: Text(
                                 'Now, go to bed',
-                                style: _defaultTextStyle,
+                                style: Theme.of(context).textTheme.headline1,
                                 maxLines: 2,
                                 textAlign: TextAlign.center,
                               ),
@@ -79,13 +86,7 @@ class _ThirdPageState extends State<ThirdPage> {
                           ],
                         ),
                         Column(
-                          children: [
-                            SizedBox(height: 52),
-                            SvgPicture.asset(
-                              'ass/sleep_baba.svg',
-                              width: w / 1.21,
-                            ),
-                          ],
+                          children: [SizedBox(height: 52), svgBaba],
                         )
                       ],
                     ),
