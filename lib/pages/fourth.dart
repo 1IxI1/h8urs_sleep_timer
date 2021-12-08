@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:h8urs_sleep_timer/adds/balls_dark.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
 // ignore: unused_import
@@ -82,8 +83,13 @@ class _FourthPageState extends State<FourthPage> {
     double h = MediaQuery.of(context).size.height;
     var alarm = now.add(hour: widget.sleeptime, minute: widget.bedtime);
 
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool darkModeOn = brightness == Brightness.dark;
+
+    var svgChert = darkModeOn ? DarkBalls() : Balls();
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100),
         child: AppBar(
@@ -98,7 +104,7 @@ class _FourthPageState extends State<FourthPage> {
                   onPressed: () {},
                   icon: Icon(
                     Icons.brightness_4_rounded,
-                    color: Colors.black,
+                    color: Theme.of(context).focusColor,
                   ),
                 ),
                 SizedBox(
@@ -117,7 +123,7 @@ class _FourthPageState extends State<FourthPage> {
               width: w / 1.18,
               child: Text(
                 'You should sleep\nuntil ${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}',
-                style: _defaultTextStyle,
+                style: Theme.of(context).textTheme.headline2,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -143,13 +149,13 @@ class _FourthPageState extends State<FourthPage> {
                         progressColor: Colors.transparent,
                         center: Container(
                           padding: const EdgeInsets.fromLTRB(0, 55, 0, 0),
-                          child: Balls(),
+                          child: svgChert,
                         )),
                     CircularPercentIndicator(
                       radius: w / 1.31 - 20,
                       lineWidth: 20.0,
                       animation: false,
-                      backgroundColor: Colors.black26,
+                      backgroundColor: Theme.of(context).unselectedWidgetColor,
                       progressColor: Colors.transparent,
                     ),
                     CircularPercentIndicator(
@@ -162,7 +168,7 @@ class _FourthPageState extends State<FourthPage> {
                       startAngle: now.hour.toDouble() * 30 +
                           now.minute.toDouble() * 0.5 -
                           widget.bedtime.toDouble() * 0.5,
-                      progressColor: Color(0xFFA99EF1),
+                      progressColor: Color(0xFF9A4AFF),
                       circularStrokeCap: CircularStrokeCap.round,
                     ),
                     CircularPercentIndicator(
@@ -173,7 +179,7 @@ class _FourthPageState extends State<FourthPage> {
                       percent: widget.sleeptime / 12,
                       startAngle: now.hour.toDouble() * 30 +
                           now.minute.toDouble() * 0.5,
-                      progressColor: Color(0xFF250BC5),
+                      progressColor: Theme.of(context).primaryColor,
                       circularStrokeCap: CircularStrokeCap.round,
                     ),
                   ],

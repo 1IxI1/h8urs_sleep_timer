@@ -61,6 +61,7 @@ Referenced Strings:
   DisplayListenerProxy
   EDGE_TO_EDGE
   EMAIL_ADDRESS
+  ERROR
   FRAMEWORK_CLIENT
   FlutterActivity
   FlutterActivityAndFragmentDelegate
@@ -210,6 +211,8 @@ Referenced Strings:
   STARTED
   START_SAFE_BROWSING
   SettingsChannel
+  ShimPluginRegistry
+  ShimRegistrar
   SystemChannel
   SystemChrome.restoreSystemUIOverlays
   SystemChrome.setApplicationSwitcherDe...
@@ -316,6 +319,7 @@ Referenced Strings:
   android.intent.action.SET_TIMER
   android.intent.action.SHOW_ALARMS
   android.intent.action.SHOW_TIMERS
+  android.intent.action.VIEW
   android.intent.category.DEFAULT
   android.intent.extra.alarm.HOUR
   android.intent.extra.alarm.LENGTH
@@ -376,6 +380,7 @@ Referenced Strings:
   android.widget.Switch
   androidx.savedstate.Restarter
   announce
+  app_opened
   appops
   args
   authentication
@@ -418,6 +423,7 @@ Referenced Strings:
   clipboard
   codePoint
   com.android.voicemail.permission.ADD_...
+  com.example.launchexternalapp.Launche...
   com.google.common.base.Strings
   componentName
   composingBase
@@ -506,6 +512,7 @@ Referenced Strings:
   getFactory
   getJavaLangAccess
   getParentNodeId
+  getPlatformVersion
   getResId
   getResPackage
   getScrollX
@@ -548,6 +555,7 @@ Referenced Strings:
   io.flutter.embedding.android.OldGenHe...
   io.flutter.embedding.android.SplashSc...
   io.flutter.plugins.GeneratedPluginReg...
+  isAppInstalled
   isForMainFrame
   java.
   javascriptChannelMessage
@@ -560,6 +568,7 @@ Referenced Strings:
   keyup
   kind
   label
+  launch_vpn
   length
   libapp.so
   libflutter.so
@@ -589,6 +598,7 @@ Referenced Strings:
   name
   namePrefix
   nameSuffix
+  navigated_to_store
   navigationRequest
   newPassword
   newUsername
@@ -618,10 +628,13 @@ Referenced Strings:
   onWebResourceError
   oneTimeCode
   opaque
+  openApp
   openAppSettings
+  open_store
   org.chromium.support_lib_glue.Support...
   overlay
   package:
+  package_name
   params
   password
   permissions_handler
@@ -761,14 +774,6 @@ Referenced Strings:
   zoomEnabled
   zoomIn
   zoomOut
-Marking id:title:2131034178 used because its prefix matches string pool constant title
-Marking id:action_container:2131034145 used because its prefix matches string pool constant action
-Marking id:action_divider:2131034146 used because its prefix matches string pool constant action
-Marking id:action_image:2131034147 used because its prefix matches string pool constant action
-Marking id:action_text:2131034148 used because its prefix matches string pool constant action
-Marking id:actions:2131034149 used because its prefix matches string pool constant action
-Marking id:text:2131034175 used because its prefix matches string pool constant text
-Marking id:text2:2131034176 used because its prefix matches string pool constant text
 Marking id:accessibility_action_clickable_span:2131034112 used because its prefix matches string pool constant accessibility
 Marking id:accessibility_custom_action_0:2131034113 used because its prefix matches string pool constant accessibility
 Marking id:accessibility_custom_action_1:2131034114 used because its prefix matches string pool constant accessibility
@@ -860,6 +865,14 @@ Marking layout:notification_template_custom_big:2131165187 used because its pref
 Marking layout:notification_template_icon_group:2131165188 used because its prefix matches string pool constant notification
 Marking layout:notification_template_part_chronometer:2131165189 used because its prefix matches string pool constant notification
 Marking layout:notification_template_part_time:2131165190 used because its prefix matches string pool constant notification
+Marking id:title:2131034178 used because its prefix matches string pool constant title
+Marking id:action_container:2131034145 used because its prefix matches string pool constant action
+Marking id:action_divider:2131034146 used because its prefix matches string pool constant action
+Marking id:action_image:2131034147 used because its prefix matches string pool constant action
+Marking id:action_text:2131034148 used because its prefix matches string pool constant action
+Marking id:actions:2131034149 used because its prefix matches string pool constant action
+Marking id:text:2131034175 used because its prefix matches string pool constant text
+Marking id:text2:2131034176 used because its prefix matches string pool constant text
 Resource Reference Graph:
 color:notification_action_color_filter:2130837504 => [color:secondary_text_default_material_light:2130837507]
 dimen:notification_media_narrow_margin:2130903054 => [dimen:notification_content_margin_start:2130903050]
@@ -987,4 +1000,4 @@ color:notification_action_color_filter:2130837504,
    attr:android_tileMode:-1,
    attr:android_offset:-1
 Skipped unused resource res/layout/custom_dialog.xml: 612 bytes (replaced with small dummy file of size 104 bytes)
-Resource shrinking did not work (grew from 44645 to 44698); using original instead
+Resource shrinking did not work (grew from 44725 to 44780); using original instead

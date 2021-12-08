@@ -64,13 +64,7 @@ class _SecondPageState extends State<SecondPage> {
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      if (now.minute != TimeOfDay.now().minute) {
-        setState(() {
-          now = TimeOfDay.now();
-        });
-      }
-    });
+    now = TimeOfDay.now();
   }
 
   @override
@@ -88,7 +82,7 @@ class _SecondPageState extends State<SecondPage> {
             Container(
               width: w / 1.18,
               child: Text(
-                'If you will set\nalarm now then it\nwill ring at ${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}',
+                'You will sleep\nuntill',
                 style: Theme.of(context).textTheme.headline2,
                 textAlign: TextAlign.center,
               ),
@@ -102,6 +96,7 @@ class _SecondPageState extends State<SecondPage> {
                   children: [
                     Stack(
                       children: [
+                        //background
                         CircularPercentIndicator(
                           radius: w / 1.31 - 20,
                           lineWidth: w / 20,
@@ -110,17 +105,20 @@ class _SecondPageState extends State<SecondPage> {
                               Theme.of(context).unselectedWidgetColor,
                           progressColor: Colors.transparent,
                         ),
+                        // yellow/bedtime
                         CircularPercentIndicator(
                           radius: w / 1.31 - 20,
                           lineWidth: w / 20,
-                          animation: false,
+                          animation: true,
                           backgroundColor: Colors.transparent,
-                          percent: sleeptime / 12 + bedtime / (12 * 60),
+                          percent: bedtime / (12 * 60),
                           startAngle: now.hour.toDouble() * 30 +
-                              now.minute.toDouble() * 0.5,
-                          progressColor: Color(0xFFFFC93E),
+                              now.minute.toDouble() * 0.5 +
+                              sleeptime / 12 * 360,
+                          progressColor: Theme.of(context).canvasColor,
                           circularStrokeCap: CircularStrokeCap.round,
                         ),
+                        // purple/sleeptime
                         CircularPercentIndicator(
                           radius: w / 1.31 - 20,
                           lineWidth: w / 20,
@@ -131,97 +129,9 @@ class _SecondPageState extends State<SecondPage> {
                               now.minute.toDouble() * 0.5,
                           progressColor: Theme.of(context).primaryColor,
                           circularStrokeCap: CircularStrokeCap.round,
-                          center: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "${now.hour < 10 ? '0' + now.hour.toString() : now.hour.toString()}:${now.minute < 10 ? '0' + now.minute.toString() : now.minute.toString()}",
-                                style: Theme.of(context).textTheme.headline2,
-                              ),
-                              SizedBox(height: 1.5),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            '$sleeptime',
-                                            style: GoogleFonts.openSans(
-                                              textStyle: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w600,
-                                                color: Theme.of(context)
-                                                    .primaryColor,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      height: 25,
-                                      width: 25,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.rectangle,
-                                        //color: Colors.black26,
-                                      ),
-                                    ),
-                                    onTap: () {
-                                      setState(() {
-                                        sleeptime = sleepCorrect(sleeptime);
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(width: 5),
-                                  Text(
-                                    '+',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                  ),
-                                  SizedBox(width: 5),
-                                  GestureDetector(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            '$bedtime',
-                                            style: GoogleFonts.openSans(
-                                              textStyle: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w600,
-                                                color: Theme.of(context)
-                                                    .primaryColor,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      height: 25,
-                                      width: 25,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.rectangle,
-                                        //color: Colors.black26,
-                                      ),
-                                    ),
-                                    onTap: () {
-                                      setState(() {
-                                        bedtime = bedCorrect(bedtime);
-                                      });
-                                    },
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                "${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}",
-                                style: Theme.of(context).textTheme.headline2,
-                              )
-                            ],
+                          center: Text(
+                            "${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}",
+                            style: Theme.of(context).textTheme.headline3,
                           ),
                         ),
                       ],
@@ -229,8 +139,85 @@ class _SecondPageState extends State<SecondPage> {
                   ],
                 ),
               ),
-              padding: EdgeInsets.only(bottom: h / 10),
+              padding: EdgeInsets.only(bottom: h / 40.19),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Text('hrs', style: Theme.of(context).textTheme.bodyText1),
+                    SizedBox(height: 3),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(100),
+                      splashColor: Theme.of(context).primaryColor,
+                      onTap: () {
+                        setState(() {
+                          sleeptime = sleepCorrect(sleeptime);
+                        });
+                      },
+                      child: Ink(
+                        height: 46,
+                        width: 76,
+                        child: Center(
+                          child: Text(
+                            '$sleeptime',
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(
+                                width: 6,
+                                color: Theme.of(context).primaryColor)),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 16),
+                Column(
+                  children: [
+                    SizedBox(height: 15),
+                    Text(
+                      '+',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    )
+                  ],
+                ),
+                SizedBox(width: 16),
+                Column(
+                  children: [
+                    Text('mins', style: Theme.of(context).textTheme.bodyText1),
+                    SizedBox(height: 3),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(100),
+                      splashColor: Theme.of(context).canvasColor,
+                      onTap: () {
+                        setState(() {
+                          bedtime = bedCorrect(bedtime);
+                        });
+                      },
+                      child: Ink(
+                        height: 46,
+                        width: 76,
+                        child: Center(
+                          child: Text(
+                            '$bedtime',
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(
+                                width: 6,
+                                color: Theme.of(context).canvasColor)),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 60),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -239,12 +226,21 @@ class _SecondPageState extends State<SecondPage> {
                     FlutterAlarmClock.createAlarm(alarm.hour, alarm.minute);
 
                     Navigator.push(
-                        context,
-                        FadeRoute(
-                            page: ThirdPage(
+                      context,
+                      FadeRoute(
+                        page: ThirdPage(
                           sleeptime: sleeptime,
                           bedtime: bedtime,
-                        )));
+                        ),
+                      ),
+                    );
+                  },
+                  onLongPress: () {
+                    if (now.minute != TimeOfDay.now().minute) {
+                      setState(() {
+                        now = TimeOfDay.now();
+                      });
+                    }
                   },
                   child: Text(
                     'Set',

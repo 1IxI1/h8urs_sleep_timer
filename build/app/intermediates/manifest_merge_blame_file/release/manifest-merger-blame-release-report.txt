@@ -10,80 +10,86 @@
 9        android:targetSdkVersion="30" />
 9-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml
 10
-11    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-11-->[:flutter_alarm_clock] /home/victor/Projects/h8urs_sleep_timer/build/flutter_alarm_clock/intermediates/library_manifest/release/AndroidManifest.xml:7:5-78
-11-->[:flutter_alarm_clock] /home/victor/Projects/h8urs_sleep_timer/build/flutter_alarm_clock/intermediates/library_manifest/release/AndroidManifest.xml:7:22-75
-12
-13    <application
-13-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:3:4-40:19
-14        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-14-->[androidx.core:core:1.1.0] /home/victor/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/AndroidManifest.xml:24:18-86
-15        android:icon="@mipmap/ic_launcher"
-15-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:5:9-43
-16        android:label="h8urs_sleep_timer" >
-16-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:4:9-42
-17        <activity
-17-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:6:9-34:20
-18            android:name="com.ixi.h8urs_sleep_timer.MainActivity"
-18-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:7:13-41
-19            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-19-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:10:13-163
-20            android:hardwareAccelerated="true"
-20-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:11:13-47
-21            android:launchMode="singleTop"
-21-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:8:13-43
-22            android:theme="@style/LaunchTheme"
-22-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:9:13-47
-23            android:windowSoftInputMode="adjustResize" >
-23-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:12:13-55
-24
-25            <!--
-26                 Specifies an Android theme to apply to this Activity as soon as
-27                 the Android process has started. This theme is visible to the user
-28                 while the Flutter UI initializes. After that, this theme continues
-29                 to determine the Window background behind the Flutter UI.
-30            -->
-31            <meta-data
-31-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:17:13-20:17
-32                android:name="io.flutter.embedding.android.NormalTheme"
-32-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:18:15-70
-33                android:resource="@style/NormalTheme" />
-33-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:19:15-52
-34            <!--
-35                 Displays an Android View that continues showing the launch screen
-36                 Drawable until Flutter paints its first frame, then this splash
-37                 screen fades out. A splash screen is useful to avoid any visual
-38                 gap between the end of Android's launch screen and the painting of
-39                 Flutter's first frame.
-40            -->
-41            <meta-data
-41-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:26:13-29:17
-42                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-42-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:27:15-79
-43                android:resource="@drawable/launch_background" />
-43-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:28:15-61
-44
-45            <intent-filter>
-45-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:30:13-33:29
-46                <action android:name="android.intent.action.MAIN" />
-46-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:31:17-68
-46-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:31:25-66
-47
-48                <category android:name="android.intent.category.LAUNCHER" />
-48-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:32:17-76
-48-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:32:27-74
-49            </intent-filter>
-50        </activity>
-51        <!--
-52             Don't delete the meta-data below.
-53             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-54        -->
-55        <meta-data
-55-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:37:9-39:33
-56            android:name="flutterEmbedding"
-56-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:38:13-44
-57            android:value="2" />
-57-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:39:13-30
-58    </application>
-59
-60</manifest>
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:3:3-64
+11-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:3:20-62
+12    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+12-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:4:3-74
+12-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:4:20-72
+13    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+13-->[:flutter_alarm_clock] /home/victor/Projects/h8urs_sleep_timer/build/flutter_alarm_clock/intermediates/library_manifest/release/AndroidManifest.xml:7:5-78
+13-->[:flutter_alarm_clock] /home/victor/Projects/h8urs_sleep_timer/build/flutter_alarm_clock/intermediates/library_manifest/release/AndroidManifest.xml:7:22-75
+14
+15    <application
+15-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:5:3-42:19
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.1.0] /home/victor/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/AndroidManifest.xml:24:18-86
+17        android:icon="@mipmap/ic_launcher"
+17-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:7:9-43
+18        android:label="h8urs_sleep_timer" >
+18-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:6:9-42
+19        <activity
+19-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:8:9-36:20
+20            android:name="com.ixi.h8urs_sleep_timer.MainActivity"
+20-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:9:13-41
+21            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+21-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:12:13-163
+22            android:hardwareAccelerated="true"
+22-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:13:13-47
+23            android:launchMode="singleTop"
+23-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:10:13-43
+24            android:theme="@style/LaunchTheme"
+24-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:11:13-47
+25            android:windowSoftInputMode="adjustResize" >
+25-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:14:13-55
+26
+27            <!--
+28                 Specifies an Android theme to apply to this Activity as soon as
+29                 the Android process has started. This theme is visible to the user
+30                 while the Flutter UI initializes. After that, this theme continues
+31                 to determine the Window background behind the Flutter UI.
+32            -->
+33            <meta-data
+33-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:19:13-22:17
+34                android:name="io.flutter.embedding.android.NormalTheme"
+34-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:20:15-70
+35                android:resource="@style/NormalTheme" />
+35-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:21:15-52
+36            <!--
+37                 Displays an Android View that continues showing the launch screen
+38                 Drawable until Flutter paints its first frame, then this splash
+39                 screen fades out. A splash screen is useful to avoid any visual
+40                 gap between the end of Android's launch screen and the painting of
+41                 Flutter's first frame.
+42            -->
+43            <meta-data
+43-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:28:13-31:17
+44                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+44-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:29:15-79
+45                android:resource="@drawable/launch_background" />
+45-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:30:15-61
+46
+47            <intent-filter>
+47-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:32:13-35:29
+48                <action android:name="android.intent.action.MAIN" />
+48-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:33:17-68
+48-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:33:25-66
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:34:17-76
+50-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:34:27-74
+51            </intent-filter>
+52        </activity>
+53        <!--
+54             Don't delete the meta-data below.
+55             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+56        -->
+57        <meta-data
+57-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:39:9-41:33
+58            android:name="flutterEmbedding"
+58-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:40:13-44
+59            android:value="2" />
+59-->/home/victor/Projects/h8urs_sleep_timer/android/app/src/main/AndroidManifest.xml:41:13-30
+60    </application>
+61
+62</manifest>

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 CustomTheme currentTheme = CustomTheme();
@@ -20,6 +19,8 @@ class CustomTheme with ChangeNotifier {
       backgroundColor: Colors.white,
       scaffoldBackgroundColor: Colors.white,
       unselectedWidgetColor: Colors.black26,
+      canvasColor: Color(0xFFFFC93E),
+      focusColor: Colors.black,
       textTheme: TextTheme(
         headline1: GoogleFonts.openSans(
           textStyle: TextStyle(
@@ -32,6 +33,26 @@ class CustomTheme with ChangeNotifier {
           textStyle: TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
+        ),
+        headline3: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 53,
+            color: Colors.black,
+          ),
+        ),
+        bodyText1: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
+        ),
+        bodyText2: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
             color: Colors.black,
           ),
         ),
@@ -61,6 +82,8 @@ class CustomTheme with ChangeNotifier {
       backgroundColor: Color(0xFF1D1D1D),
       scaffoldBackgroundColor: Color(0xFF1D1D1D),
       unselectedWidgetColor: Color(0xFFBFBFBF).withOpacity(0.33),
+      canvasColor: Color(0xFFFFC93E),
+      focusColor: Colors.white,
       textTheme: TextTheme(
         headline1: GoogleFonts.openSans(
           textStyle: TextStyle(
@@ -73,6 +96,26 @@ class CustomTheme with ChangeNotifier {
           textStyle: TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+        headline3: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 53,
+            color: Colors.white,
+          ),
+        ),
+        bodyText1: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+        bodyText2: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
             color: Colors.white,
           ),
         ),
