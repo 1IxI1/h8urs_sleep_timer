@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:h8urs_sleep_timer/adds/balls_dark.dart';
+import 'package:h8urs_sleep_timer/themes.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
 // ignore: unused_import
@@ -101,7 +102,11 @@ class _FourthPageState extends State<FourthPage> {
               children: [
                 IconButton(
                   iconSize: 26,
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      currentTheme.toggleTheme();
+                    });
+                  },
                   icon: Icon(
                     Icons.brightness_4_rounded,
                     color: Theme.of(context).focusColor,
