@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/ixi/h8urs_sleep_timer/BuildConfig.java
- com.ixi.h8urs_sleep_timer.BuildConfig
