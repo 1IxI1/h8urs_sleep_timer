@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:h8urs_sleep_timer/pages/first.dart';
-import 'package:h8urs_sleep_timer/themes.dart';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-// import 'package:infinity_ui/infinity_ui.dart';
 
 void main() {
   runApp(
@@ -17,6 +15,9 @@ void main() {
 class MyApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
     return MaterialApp(
       theme: ThemeData(
         primaryColor: Color(0xFF250BC5),
@@ -29,56 +30,56 @@ class MyApp1 extends StatelessWidget {
         textTheme: TextTheme(
           headline1: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 48,
+              fontSize: w / 8.19,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),
           headline2: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 36,
+              fontSize: w / 10.92,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),
           headline3: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 53,
+              fontSize: w / 7.42,
               fontWeight: FontWeight.normal,
               color: Colors.black,
             ),
           ),
           headline4: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 26,
+              fontSize: w / 15.12,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),
           bodyText1: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 14,
+              fontSize: w / 28.07,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),
           bodyText2: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 24,
+              fontSize: w / 16.38,
               fontWeight: FontWeight.w700,
               color: Colors.black,
             ),
           ),
           subtitle1: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 18,
+              fontSize: w / 21.83,
               fontWeight: FontWeight.normal,
               color: Colors.black,
             ),
           ),
           button: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 24,
+              fontSize: w / 16.37,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
@@ -105,56 +106,56 @@ class MyApp1 extends StatelessWidget {
         textTheme: TextTheme(
           headline1: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 48,
+              fontSize: w / 8.19,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
           ),
           headline2: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 36,
+              fontSize: w / 10.92,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
           ),
           headline3: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 53,
+              fontSize: w / 7.42,
               fontWeight: FontWeight.normal,
               color: Colors.white,
             ),
           ),
           headline4: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 26,
+              fontSize: w / 15.12,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
           ),
           bodyText1: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 14,
+              fontSize: w / 28.07,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
           ),
           bodyText2: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 24,
+              fontSize: w / 16.38,
               fontWeight: FontWeight.w700,
               color: Colors.white,
             ),
           ),
           subtitle1: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 18,
+              fontSize: w / 21.83,
               fontWeight: FontWeight.normal,
               color: Colors.white,
             ),
           ),
           button: GoogleFonts.openSans(
             textStyle: TextStyle(
-              fontSize: 24,
+              fontSize: w / 16.37,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
