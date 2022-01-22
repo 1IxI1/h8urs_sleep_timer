@@ -26,6 +26,7 @@ class _BallsState extends State<Balls> {
       height: this.widget.height,
       child: Center(
         child: WebView(
+          backgroundColor: Colors.transparent,
           key: _key,
           javascriptMode: JavascriptMode.unrestricted,
           initialUrl: 'about:blank',

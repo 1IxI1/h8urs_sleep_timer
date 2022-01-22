@@ -1,35 +1,15 @@
-import 'package:flutter/cupertino.dart';
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:h8urs_sleep_timer/adds/balls_dark.dart';
-import 'package:h8urs_sleep_timer/themes.dart';
+import 'package:h8urs_sleep_timer/adds/dialogs.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
 // ignore: unused_import
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
 import 'package:h8urs_sleep_timer/adds/balls.dart';
-import 'package:external_app_launcher/external_app_launcher.dart';
-
-void main() async {
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {},
-      home: FourthPage(
-        bedtime: 0,
-        sleeptime: 0,
-      ),
-    );
-  }
-}
+import 'package:lottie/lottie.dart';
 
 class FourthPage extends StatefulWidget {
   final int bedtime;
@@ -61,13 +41,6 @@ extension TimeOfDayExtension on TimeOfDay {
 }
 
 class _FourthPageState extends State<FourthPage> {
-  var _defaultTextStyle = GoogleFonts.openSans(
-    textStyle: TextStyle(
-      fontSize: 36,
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-    ),
-  );
   TimeOfDay now = TimeOfDay.now();
   var isButtonVisible = false;
 
@@ -84,149 +57,138 @@ class _FourthPageState extends State<FourthPage> {
     double h = MediaQuery.of(context).size.height;
     var alarm = now.add(hour: widget.sleeptime, minute: widget.bedtime);
 
-    var brightness = MediaQuery.of(context).platformBrightness;
-    bool darkModeOn = brightness == Brightness.dark;
+    var brightness = EasyDynamicTheme.of(context).themeMode;
+    bool darkModeOn = brightness == ThemeMode.dark;
 
     var svgChert = darkModeOn ? DarkBalls() : Balls();
 
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  iconSize: 26,
-                  onPressed: () {
-                    setState(() {
-                      currentTheme.toggleTheme();
-                    });
-                  },
-                  icon: Icon(
-                    Icons.brightness_4_rounded,
-                    color: Theme.of(context).focusColor,
-                  ),
-                ),
-                SizedBox(
-                  width: 31,
-                )
-              ],
-            )
-          ],
-        ),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              EasyDynamicThemeBtn(),
+              SizedBox(width: 31),
+            ],
+          )
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              width: w / 1.18,
-              child: Text(
-                'You should sleep\nuntil ${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}',
-                style: Theme.of(context).textTheme.headline2,
-                textAlign: TextAlign.center,
+      body: Visibility(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                width: w / 1.18,
+                child: Text(
+                  'You should sleep\nuntil ${alarm.hour < 10 ? '0' + alarm.hour.toString() : alarm.hour.toString()}:${alarm.minute < 10 ? '0' + alarm.minute.toString() : alarm.minute.toString()}',
+                  style: Theme.of(context).textTheme.headline2,
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-            SizedBox(height: h / 16.37),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  if (isButtonVisible) {
-                    isButtonVisible = false;
-                  } else {
-                    isButtonVisible = true;
-                  }
-                });
-              },
-              child: Container(
-                child: Stack(
-                  children: [
-                    CircularPercentIndicator(
-                        radius: w / 1.31 - 20,
+              SizedBox(height: h / 16.37),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if (isButtonVisible) {
+                      isButtonVisible = false;
+                    } else {
+                      isButtonVisible = true;
+                    }
+                  });
+                },
+                child: Container(
+                  child: Stack(
+                    children: [
+                      CircularPercentIndicator(
+                        radius: (w / 1.31 - 20)/2,
                         lineWidth: 20.0,
                         animation: false,
                         backgroundColor: Colors.transparent,
                         progressColor: Colors.transparent,
                         center: Container(
-                          padding: const EdgeInsets.fromLTRB(0, 55, 0, 0),
-                          child: svgChert,
-                        )),
-                    CircularPercentIndicator(
-                      radius: w / 1.31 - 20,
-                      lineWidth: 20.0,
-                      animation: false,
-                      backgroundColor: Theme.of(context).unselectedWidgetColor,
-                      progressColor: Colors.transparent,
-                    ),
-                    CircularPercentIndicator(
-                      radius: w / 1.31 - 20,
-                      lineWidth: 20.0,
-                      animation: false,
-                      backgroundColor: Colors.transparent,
-                      percent:
-                          widget.sleeptime / 12 + widget.bedtime / (12 * 60),
-                      startAngle: now.hour.toDouble() * 30 +
-                          now.minute.toDouble() * 0.5 -
-                          widget.bedtime.toDouble() * 0.5,
-                      progressColor: Color(0xFF9A4AFF),
-                      circularStrokeCap: CircularStrokeCap.round,
-                    ),
-                    CircularPercentIndicator(
-                      radius: w / 1.31 - 20,
-                      lineWidth: 20.0,
-                      animation: false,
-                      backgroundColor: Colors.transparent,
-                      percent: widget.sleeptime / 12,
-                      startAngle: now.hour.toDouble() * 30 +
-                          now.minute.toDouble() * 0.5,
-                      progressColor: Theme.of(context).primaryColor,
-                      circularStrokeCap: CircularStrokeCap.round,
-                    ),
-                  ],
+                          //padding: const EdgeInsets.fromLTRB(0, 55, 0, 0),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                          child: Lottie.network('https://assets1.lottiefiles.com/packages/lf20_ldqqbtdk.json', width: w/1.8),
+                        ),
+                      ),
+                      CircularPercentIndicator(
+                        radius: (w / 1.31 - 20)/2,
+                        lineWidth: 20.0,
+                        animation: false,
+                        backgroundColor:
+                            Theme.of(context).unselectedWidgetColor,
+                        progressColor: Colors.transparent,
+                      ),
+                      CircularPercentIndicator(
+                        radius: (w / 1.31 - 20)/2,
+                        lineWidth: 20.0,
+                        animation: false,
+                        backgroundColor: Colors.transparent,
+                        percent:
+                            widget.sleeptime / 12 + widget.bedtime / (12 * 60),
+                        startAngle: now.hour.toDouble() * 30 +
+                            now.minute.toDouble() * 0.5 -
+                            widget.bedtime.toDouble() * 0.5,
+                        progressColor: Color(0xFF9A4AFF),
+                        circularStrokeCap: CircularStrokeCap.round,
+                      ),
+                      CircularPercentIndicator(
+                        radius: (w / 1.31 - 20)/2,
+                        lineWidth: 20.0,
+                        animation: false,
+                        backgroundColor: Colors.transparent,
+                        percent: widget.sleeptime / 12,
+                        startAngle: now.hour.toDouble() * 30 +
+                            now.minute.toDouble() * 0.5,
+                        progressColor: Theme.of(context).primaryColor,
+                        circularStrokeCap: CircularStrokeCap.round,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Container(
-              height: h / 7.74 + h / 15,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  AnimatedOpacity(
-                    duration: const Duration(milliseconds: 300),
-                    opacity: isButtonVisible ? 1 : 0,
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Colors.transparent,
-                      ),
-                      onPressed: () async {
-                        LaunchApp.openApp(
-                          openStore: false,
-                          androidPackageName: 'com.google.android.deskclock',
-                        );
-                      },
-                      child: Text(
-                        "Disable alarm",
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Color(0xFFC50B0B),
-                              fontSize: h / 46.88,
-                              fontWeight: FontWeight.w700),
+              Container(
+                height: h / 7.74 + h / 15,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    AnimatedOpacity(
+                      duration: const Duration(milliseconds: 300),
+                      opacity: isButtonVisible ? 1 : 0,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Colors.transparent,
+                        ),
+                        // onPressed: () async {
+                        //   LaunchApp.openApp(
+                        //     openStore: false,
+                        //     androidPackageName: 'com.google.android.deskclock',
+                        //   );
+                        // },
+                        onPressed: () => Dialogs.removeApprove(context),
+                        child: Text(
+                          "Disable alarm",
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                                color: Theme.of(context).errorColor,
+                                fontSize: h / 46.88,
+                                fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 7,
-                  )
-                ],
+                    SizedBox(height: h / 8),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

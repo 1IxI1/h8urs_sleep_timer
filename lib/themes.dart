@@ -5,7 +5,6 @@ CustomTheme currentTheme = CustomTheme();
 
 class CustomTheme with ChangeNotifier {
   static bool _isDarkTheme = true;
-
   ThemeMode get currenTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
 
   void toggleTheme() {
@@ -20,6 +19,7 @@ class CustomTheme with ChangeNotifier {
       scaffoldBackgroundColor: Colors.white,
       unselectedWidgetColor: Colors.black26,
       canvasColor: Color(0xFFFFC93E),
+      errorColor: Color(0xFFC50B0B),
       focusColor: Colors.black,
       textTheme: TextTheme(
         headline1: GoogleFonts.openSans(
@@ -42,6 +42,13 @@ class CustomTheme with ChangeNotifier {
             color: Colors.black,
           ),
         ),
+        headline4: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
+        ),
         bodyText1: GoogleFonts.openSans(
           textStyle: TextStyle(
             fontSize: 14,
@@ -56,11 +63,17 @@ class CustomTheme with ChangeNotifier {
             color: Colors.black,
           ),
         ),
+        subtitle1: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 18,
+            color: Colors.black,
+          ),
+        ),
         button: GoogleFonts.openSans(
           textStyle: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w600,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
       ),
@@ -83,6 +96,7 @@ class CustomTheme with ChangeNotifier {
       scaffoldBackgroundColor: Color(0xFF1D1D1D),
       unselectedWidgetColor: Color(0xFFBFBFBF).withOpacity(0.33),
       canvasColor: Color(0xFFFFC93E),
+      errorColor: Color(0xFFC50B0B),
       focusColor: Colors.white,
       textTheme: TextTheme(
         headline1: GoogleFonts.openSans(
@@ -105,6 +119,13 @@ class CustomTheme with ChangeNotifier {
             color: Colors.white,
           ),
         ),
+        headline4: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
         bodyText1: GoogleFonts.openSans(
           textStyle: TextStyle(
             fontSize: 14,
@@ -116,6 +137,12 @@ class CustomTheme with ChangeNotifier {
           textStyle: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w700,
+            color: Colors.white,
+          ),
+        ),
+        subtitle1: GoogleFonts.openSans(
+          textStyle: TextStyle(
+            fontSize: 18,
             color: Colors.white,
           ),
         ),

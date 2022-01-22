@@ -1,8 +1,5 @@
-import 'dart:async';
-import 'package:flutter/cupertino.dart';
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:h8urs_sleep_timer/pages/third.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -10,22 +7,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
 import 'package:h8urs_sleep_timer/adds/ugly_funcs.dart';
 import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
-
-void main() async {
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {},
-      home: SecondPage(),
-    );
-  }
-}
+import 'dart:io' show Platform;
 
 class SecondPage extends StatefulWidget {
   SecondPage({Key? key}) : super(key: key);
@@ -49,14 +31,6 @@ extension TimeOfDayExtension on TimeOfDay {
 }
 
 class _SecondPageState extends State<SecondPage> {
-  var _defaultTextStyle = GoogleFonts.openSans(
-    textStyle: TextStyle(
-      fontSize: 36,
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-    ),
-  );
-
   TimeOfDay now = TimeOfDay.now();
   int bedtime = 10;
   int sleeptime = 8;
@@ -98,7 +72,7 @@ class _SecondPageState extends State<SecondPage> {
                       children: [
                         //background
                         CircularPercentIndicator(
-                          radius: w / 1.31 - 20,
+                          radius: (w / 1.31 - 20)/2,
                           lineWidth: w / 20,
                           animation: false,
                           backgroundColor:
@@ -107,7 +81,7 @@ class _SecondPageState extends State<SecondPage> {
                         ),
                         // yellow/bedtime
                         CircularPercentIndicator(
-                          radius: w / 1.31 - 20,
+                          radius: (w / 1.31 - 20)/2,
                           lineWidth: w / 20,
                           animation: true,
                           backgroundColor: Colors.transparent,
@@ -120,7 +94,7 @@ class _SecondPageState extends State<SecondPage> {
                         ),
                         // purple/sleeptime
                         CircularPercentIndicator(
-                          radius: w / 1.31 - 20,
+                          radius: (w / 1.31 - 20)/2,
                           lineWidth: w / 20,
                           animation: false,
                           backgroundColor: Colors.transparent,
@@ -217,14 +191,15 @@ class _SecondPageState extends State<SecondPage> {
                 ),
               ],
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 30),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 ElevatedButton(
                   onPressed: () async {
-                    FlutterAlarmClock.createAlarm(alarm.hour, alarm.minute);
-
+                    if (Platform.isAndroid) {
+                      FlutterAlarmClock.createAlarm(alarm.hour, alarm.minute);
+                    }
                     Navigator.push(
                       context,
                       FadeRoute(
@@ -259,7 +234,7 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                 ),
                 SizedBox(
-                  height: h / 40.5,
+                  height: h / 20,
                 ),
               ],
             ),

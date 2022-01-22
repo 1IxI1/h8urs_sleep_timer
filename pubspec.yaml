@@ -23,18 +23,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  permission_handler: ^8.1.6
   google_fonts: ^2.1.0
-  flutter_svg: ^0.22.0
-  percent_indicator: "^2.1.7+2"
+  flutter_svg: ^1.0.3
+  percent_indicator: ^4.0.0
   provider: ^6.0.1
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.4
   flutter_alarm_clock: ^0.0.1
   introduction_screen: ^2.1.0
-  webview_flutter: ^2.1.2
-  external_app_launcher: ^2.0.1
-  
-# following page: https://dart.dev/tools/pub/pubspec
+  webview_flutter: ^3.0.0
+  external_app_launcher: ^2.0.2
+  easy_dynamic_theme: ^2.2.0
+  auto_size_text: ^3.0.0
+  lottie: ^1.2.1
+  hive: ^2.0.5
+  hive_flutter: ^1.1.0
+
+dev_dependencies:
+  hive_generator: ^1.1.2
+  build_runner: ^2.1.7
 
 # The following section is specific to Flutter.
 flutter:
@@ -50,6 +56,8 @@ flutter:
     - ass/undraw_starry_window_ppm0_dark.svg
     - ass/sleep_baba.svg
     - ass/sleep_baba_dark.svg
+    - ass/baba_light.json
+    - ass/bad.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

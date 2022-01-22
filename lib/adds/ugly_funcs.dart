@@ -11,10 +11,7 @@ int bedCorrect(dynamic bedtime) {
     case (0):
       return 5;
     case (5):
-      return 1; // 10
-
-    case (1): //
-      return 10; //
+      return 10;
   }
   return 10;
 }
@@ -26,10 +23,7 @@ int sleepCorrect(dynamic sleeptime) {
     case (9):
       return 7;
     case (7):
-      return 0; // 9
-
-    case (0): // TODO: remove lines
-      return 8; //
+      return 8; // 9
   }
   return 8;
 }
