@@ -15,8 +15,9 @@ void main() {
 class MyApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+    //double w = MediaQuery.of(context).size.width;
+    MediaQueryData mq = MediaQueryData.fromWindow(WidgetsBinding.instance!.window);
+    double w = mq.size.width;
 
     return MaterialApp(
       theme: ThemeData(
@@ -27,6 +28,7 @@ class MyApp1 extends StatelessWidget {
         canvasColor: Color(0xFFFFC93E),
         errorColor: Color(0xFFC50B0B),
         focusColor: Colors.black,
+        bottomAppBarColor: Color(0xFF250BC5).withOpacity(0.12),
         textTheme: TextTheme(
           headline1: GoogleFonts.openSans(
             textStyle: TextStyle(
@@ -73,7 +75,7 @@ class MyApp1 extends StatelessWidget {
           subtitle1: GoogleFonts.openSans(
             textStyle: TextStyle(
               fontSize: w / 21.83,
-              fontWeight: FontWeight.normal,
+              fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),
@@ -102,6 +104,7 @@ class MyApp1 extends StatelessWidget {
         unselectedWidgetColor: Color(0xFFBFBFBF).withOpacity(0.33),
         canvasColor: Color(0xFFFFC93E),
         errorColor: Color(0xFFC50B0B),
+        bottomAppBarColor: Color(0xFFC5BCFF).withOpacity(0.12),
         focusColor: Colors.white,
         textTheme: TextTheme(
           headline1: GoogleFonts.openSans(
@@ -173,6 +176,7 @@ class MyApp1 extends StatelessWidget {
       ),
       themeMode: EasyDynamicTheme.of(context).themeMode,
       home: FirstPage(),
+
     );
   }
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:h8urs_sleep_timer/pages/noalarms.dart';
 import 'package:h8urs_sleep_timer/pages/second.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:h8urs_sleep_timer/pages/svmode.dart';
 
 import 'fourth.dart';
 
@@ -44,7 +46,7 @@ class _FirstPageState extends State<FirstPage> {
                         text: '8',
                         style: GoogleFonts.openSans(
                           textStyle: TextStyle(
-                            fontSize: w/8.18,
+                            fontSize: w / 8.18,
                             fontWeight: FontWeight.w600,
                             color: Theme.of(context).primaryColor,
                           ),
@@ -53,7 +55,6 @@ class _FirstPageState extends State<FirstPage> {
                       TextSpan(
                         text: ' hours',
                         style: Theme.of(context).textTheme.headline1,
-
                       ),
                     ],
                   ),
@@ -66,6 +67,9 @@ class _FirstPageState extends State<FirstPage> {
                   aspectRatio: 2.8 / 2,
                   child: GestureDetector(
                     child: svgWindow,
+                    onTap: () {
+                      Navigator.push(context, FadeRoute(page: NoalarmsPage()));
+                    },
                     onLongPress: () {
                       Navigator.push(
                           context,
@@ -86,9 +90,7 @@ class _FirstPageState extends State<FirstPage> {
                     Navigator.push(context, FadeRoute(page: SecondPage()));
                   },
                   onLongPress: () {
-                    setState(() {
-                      EasyDynamicTheme.of(context).changeTheme();
-                    });
+                    Navigator.push(context, FadeRoute(page: SvModePage()));
                   },
                   child: Text(
                     'Yeah',
