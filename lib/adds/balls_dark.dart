@@ -26,6 +26,7 @@ class _DarkBallsState extends State<DarkBalls> {
       height: this.widget.height,
       child: Center(
         child: WebView(
+          zoomEnabled: false,
           backgroundColor: Colors.transparent,
           key: _key,
           javascriptMode: JavascriptMode.unrestricted,

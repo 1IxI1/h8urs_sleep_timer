@@ -1,8 +1,11 @@
+import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:h8urs_sleep_timer/pages/first.dart';
+import 'package:h8urs_sleep_timer/pages/intro.dart';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:h8urs_sleep_timer/pages/noalarms.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(
@@ -23,7 +26,7 @@ class MyApp1 extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF250BC5),
         backgroundColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Color(0xFFDDDDDD),
         unselectedWidgetColor: Colors.black26,
         canvasColor: Color(0xFFFFC93E),
         errorColor: Color(0xFFC50B0B),
@@ -96,11 +99,12 @@ class MyApp1 extends StatelessWidget {
             primary: Color(0xFF250BC5),
           ),
         ),
+        shadowColor: Colors.grey.withOpacity(0.1),
       ),
       darkTheme: ThemeData(
         primaryColor: Color(0xFF3918FF),
         backgroundColor: Color(0xFF1D1D1D),
-        scaffoldBackgroundColor: Color(0xFF1D1D1D),
+        scaffoldBackgroundColor: Color(0xFF484848),
         unselectedWidgetColor: Color(0xFFBFBFBF).withOpacity(0.33),
         canvasColor: Color(0xFFFFC93E),
         errorColor: Color(0xFFC50B0B),
@@ -173,10 +177,41 @@ class MyApp1 extends StatelessWidget {
             primary: Color(0xFF250BC5),
           ),
         ),
+        shadowColor: Colors.black.withOpacity(0.2),
       ),
       themeMode: EasyDynamicTheme.of(context).themeMode,
-      home: FirstPage(),
-
+      home: Splash(),
     );
   }
 }
+class Splash extends StatefulWidget {
+  @override
+  SplashState createState() => new SplashState();
+}
+
+class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
+  Future checkFirstSeen() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _seen = (prefs.getBool('seen') ?? false);
+
+    if (_seen) {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => NoalarmsPage()));
+    } else {
+      await prefs.setBool('seen', true);
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => FirstPage()));
+    }
+  }
+  void afterFirstLayout(BuildContext context) => checkFirstSeen();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // body: Center(
+      //   child: Text('Loading...'),
+      // ),
+    );
+  }
+}
+

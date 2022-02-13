@@ -4,13 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:h8urs_sleep_timer/adds/balls_dark.dart';
 import 'package:h8urs_sleep_timer/adds/dialogs.dart';
-import 'package:h8urs_sleep_timer/pages/second.dart';
+import 'package:h8urs_sleep_timer/pages/armode.dart';
+import 'package:h8urs_sleep_timer/pages/svmode.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
 // ignore: unused_import
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
 import 'package:h8urs_sleep_timer/adds/balls.dart';
 import 'package:lottie/lottie.dart';
+import 'dart:math';
 
 class NoalarmsPage extends StatefulWidget {
   NoalarmsPage({Key? key}) : super(key: key);
@@ -28,12 +30,9 @@ class _NoalarmsPageState extends State<NoalarmsPage> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
 
     var brightness = EasyDynamicTheme.of(context).themeMode;
     bool darkModeOn = brightness == ThemeMode.dark;
-
-    var svgChert = darkModeOn ? DarkBalls() : Balls();
 
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -42,12 +41,9 @@ class _NoalarmsPageState extends State<NoalarmsPage> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              EasyDynamicThemeBtn(),
-              SizedBox(width: 31),
-            ],
+          Container(
+            child: EasyDynamicThemeBtn(),
+            //SizedBox(width: 31),
           )
         ],
       ),
@@ -60,39 +56,67 @@ class _NoalarmsPageState extends State<NoalarmsPage> {
               style: Theme.of(context).textTheme.subtitle1,
             ),
             SizedBox(height: 30),
-            InkWell(
-              onTap: () {
-                Navigator.push(context, FadeRoute(page: SecondPage()));
-              },
-              borderRadius: BorderRadius.circular(100),
-              child: Container(
-                height: 150,
-                width: 150,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Theme.of(context).bottomAppBarColor,
+            Tooltip(
+              decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(10)),
+              message: "New alarm",
+              child: InkWell(
+                onTap: () => showGeneralDialog(
+                  barrierLabel: "",
+                  barrierDismissible: true,
+                  barrierColor: Colors.black.withOpacity(0.5),
+                  transitionDuration: Duration(milliseconds: 200),
+                  context: context,
+                  pageBuilder: (context, anim1, anim2) {
+                    return Dialogs.ChoseModeDialog(context, w);
+                  },
+                  transitionBuilder: (context, anim1, anim2, child) {
+                    const begin = Offset(0.0, 1.0);
+                    const end = Offset.zero;
+                    const curve = Curves.ease;
+
+                    var tween = Tween(begin: begin, end: end)
+                        .chain(CurveTween(curve: curve));
+
+                    return SlideTransition(
+                      position: anim1.drive(tween),
+                      child: child,
+                    );
+                  },
                 ),
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Container(
-                        height: 7,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            color: Color(0xFF907DFF),
-                            borderRadius: BorderRadius.circular(10)),
+                //Dialogs.choseMode(context);
+
+                borderRadius: BorderRadius.circular(100),
+                child: Container(
+                  height: 150,
+                  width: 150,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Theme.of(context).bottomAppBarColor,
+                  ),
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          height: 7,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              color: Color(0xFF907DFF),
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
                       ),
-                    ),
-                    Center(
-                      child: Container(
-                        height: 100,
-                        width: 7,
-                        decoration: BoxDecoration(
-                            color: Color(0xFF907DFF),
-                            borderRadius: BorderRadius.circular(10)),
+                      Center(
+                        child: Container(
+                          height: 100,
+                          width: 7,
+                          decoration: BoxDecoration(
+                              color: Color(0xFF907DFF),
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -33,8 +33,6 @@ extension TimeOfDayExtension on TimeOfDay {
 
 class _SvModePageState extends State<SvModePage> {
   TimeOfDay now = TimeOfDay.now();
-  int bedtime = 10;
-  int sleeptime = 8;
 
   @override
   void initState() {
@@ -55,7 +53,6 @@ class _SvModePageState extends State<SvModePage> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    var alarm = now.add(hour: sleeptime, minute: bedtime);
 
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -78,7 +75,7 @@ class _SvModePageState extends State<SvModePage> {
               onChange: onTimeChanged,
               iosStylePicker: false,
               minHour: 4,
-              maxHour: 18,
+              maxHour: 14,
               is24HrFormat: true,
             ),
             SizedBox(height: 30),
@@ -88,15 +85,14 @@ class _SvModePageState extends State<SvModePage> {
                 ElevatedButton(
                   onPressed: () async {
                     if (Platform.isAndroid) {
-                      print(_time);
                       FlutterAlarmClock.createAlarm(_time.hour, _time.minute);
                     }
                     Navigator.push(
                       context,
                       FadeRoute(
                         page: ThirdPage(
-                          sleeptime: sleeptime,
-                          bedtime: bedtime,
+                          sleeptime: _time.hour,
+                          bedtime: _time.minute,
                         ),
                       ),
                     );
