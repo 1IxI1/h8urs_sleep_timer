@@ -37,6 +37,9 @@ dependencies:
   lottie: ^1.2.1
   hive: ^2.0.5
   hive_flutter: ^1.1.0
+  shared_preferences: ^2.0.12
+  after_layout: ^1.1.0
+  just_audio: ^0.9.18
 
 dev_dependencies:
   hive_generator: ^1.1.2

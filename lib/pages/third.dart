@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:h8urs_sleep_timer/adds/route_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:h8urs_sleep_timer/pages/fourth.dart';
+import 'package:h8urs_sleep_timer/pages/sleepscreen.dart';
 
 class ThirdPage extends StatefulWidget {
   final int bedtime;
@@ -29,6 +29,7 @@ class _ThirdPageState extends State<ThirdPage> {
         width: w / 1.21);
 
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -71,11 +72,13 @@ class _ThirdPageState extends State<ThirdPage> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        FadeRoute(
-                            page: FourthPage(
-                                sleeptime: widget.sleeptime,
-                                bedtime: widget.bedtime)));
+                      context,
+                      FadeRoute(
+                        page: SleepScreen(
+                            sleeptime: widget.sleeptime,
+                            bedtime: widget.bedtime),
+                      ),
+                    );
                   },
                   child: Text(
                     'Zzzz',
