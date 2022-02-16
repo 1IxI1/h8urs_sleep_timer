@@ -355,7 +355,7 @@
         <entry key="just_audio">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/just_audio-0.9.19/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/just_audio-0.9.20/lib" />
             </list>
           </value>
         </entry>
@@ -851,7 +851,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/io-1.0.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/js-0.6.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.4.0/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/just_audio-0.9.19/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/just_audio-0.9.20/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/just_audio_platform_interface-4.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/just_audio_web-0.4.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2/lib" />

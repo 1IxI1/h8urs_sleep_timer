@@ -206,6 +206,7 @@ class _SecondPageState extends State<SecondPage> {
                         page: ThirdPage(
                           sleeptime: sleeptime,
                           bedtime: bedtime,
+                          armode: true,
                         ),
                       ),
                     );

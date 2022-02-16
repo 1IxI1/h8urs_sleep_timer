@@ -1,9 +1,9 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:h8urs_sleep_timer/adds/balls_dark.dart';
 import 'package:h8urs_sleep_timer/adds/dialogs.dart';
+import 'package:just_audio/just_audio.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
 // ignore: unused_import
@@ -12,15 +12,16 @@ import 'package:h8urs_sleep_timer/adds/balls.dart';
 import 'package:lottie/lottie.dart';
 
 class SleepScreen extends StatefulWidget {
-  final int bedtime;
-  final int sleeptime;
+  final int minutes;
+  final int hours;
+  final bool armode;
 
-  SleepScreen({Key? key, required this.bedtime, required this.sleeptime})
+  SleepScreen(
+      {Key? key,
+      required this.minutes,
+      required this.hours,
+      required this.armode})
       : super(key: key);
-
-  get width => null;
-
-  get height => null;
 
   @override
   _SleepScreenState createState() => _SleepScreenState();
@@ -44,20 +45,35 @@ class _SleepScreenState extends State<SleepScreen> {
   TimeOfDay now = TimeOfDay.now();
   var isButtonVisible = false;
 
-  get data => null;
+  AudioPlayer? player;
 
   @override
   void initState() {
     super.initState();
+    _init();
+  }
+
+  void _init() async {
+    player = new AudioPlayer();
+    var duration = await player?.setAsset('ass/music.mp3');
+    print(duration);
+    await player?.setLoopMode(LoopMode.one);
+    await player?.setVolume(0.7);
   }
 
   bool _isMusic = false;
+
+  void playPause(_isMusic) {
+    _isMusic ? player?.play() : player?.pause();
+  }
 
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    var alarm = now.add(hour: widget.sleeptime, minute: widget.bedtime);
+    var alarm = widget.armode
+        ? now.add(hour: widget.hours, minute: widget.minutes)
+        : TimeOfDay(hour: widget.hours, minute: widget.minutes);
 
     var brightness = EasyDynamicTheme.of(context).themeMode;
     bool darkModeOn;
@@ -68,13 +84,10 @@ class _SleepScreenState extends State<SleepScreen> {
       darkModeOn = brightness == ThemeMode.dark;
 
     String _chertMode = 'chert';
-    Container svgChert = darkModeOn
-        ? Container(
-            padding: const EdgeInsets.fromLTRB(0, 55, 0, 0),
-            child: DarkBalls(),
-          )
-        : Container(
-            padding: const EdgeInsets.fromLTRB(0, 55, 0, 0), child: Balls());
+    Container svgChert = Container(
+      padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
+      child: Balls(darkModeOn: darkModeOn),
+    );
 
     if (_chertMode == 'cat') {
       svgChert = Container(
@@ -82,8 +95,6 @@ class _SleepScreenState extends State<SleepScreen> {
         child: Lottie.asset('ass/lf20_ldqqbtdk.json', width: w / 1.8),
       );
     }
-
-
 
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -104,6 +115,7 @@ class _SleepScreenState extends State<SleepScreen> {
                     : Icons.music_off_rounded),
                 onPressed: () => setState(() {
                   _isMusic = !_isMusic;
+                  playPause(_isMusic);
                 }),
                 color: Theme.of(context).focusColor,
               ),
@@ -131,24 +143,6 @@ class _SleepScreenState extends State<SleepScreen> {
                       ],
                     ),
                     value: 1,
-                    onTap: () {
-                      setState(() {
-                        EasyDynamicTheme.of(context).changeTheme();
-                      });
-                    },
-                  ),
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Text('Theme: '),
-                        Text(
-                          brightness == ThemeMode.system
-                              ? 'System'
-                              : (darkModeOn ? 'Dark' : 'Light'),
-                        )
-                      ],
-                    ),
-                    value: 2,
                     onTap: () {
                       setState(() {
                         EasyDynamicTheme.of(context).changeTheme();
@@ -209,11 +203,10 @@ class _SleepScreenState extends State<SleepScreen> {
                         lineWidth: 20.0,
                         animation: false,
                         backgroundColor: Colors.transparent,
-                        percent:
-                            widget.sleeptime / 12 + widget.bedtime / (12 * 60),
+                        percent: widget.hours / 12 + widget.minutes / (12 * 60),
                         startAngle: now.hour.toDouble() * 30 +
                             now.minute.toDouble() * 0.5 -
-                            widget.bedtime.toDouble() * 0.5,
+                            widget.minutes.toDouble() * 0.5,
                         progressColor: Color(0xFF9A4AFF),
                         circularStrokeCap: CircularStrokeCap.round,
                       ),
@@ -222,7 +215,7 @@ class _SleepScreenState extends State<SleepScreen> {
                         lineWidth: 20.0,
                         animation: false,
                         backgroundColor: Colors.transparent,
-                        percent: widget.sleeptime / 12,
+                        percent: widget.hours / 12,
                         startAngle: now.hour.toDouble() * 30 +
                             now.minute.toDouble() * 0.5,
                         progressColor: Theme.of(context).primaryColor,

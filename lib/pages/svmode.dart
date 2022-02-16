@@ -93,6 +93,7 @@ class _SvModePageState extends State<SvModePage> {
                         page: ThirdPage(
                           sleeptime: _time.hour,
                           bedtime: _time.minute,
+                          armode: false,
                         ),
                       ),
                     );

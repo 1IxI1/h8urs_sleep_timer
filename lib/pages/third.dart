@@ -8,7 +8,12 @@ import 'package:h8urs_sleep_timer/pages/sleepscreen.dart';
 class ThirdPage extends StatefulWidget {
   final int bedtime;
   final int sleeptime;
-  ThirdPage({Key? key, required this.bedtime, required this.sleeptime})
+  final bool armode;
+  ThirdPage(
+      {Key? key,
+      required this.bedtime,
+      required this.sleeptime,
+      required this.armode})
       : super(key: key);
 
   @override
@@ -75,8 +80,10 @@ class _ThirdPageState extends State<ThirdPage> {
                       context,
                       FadeRoute(
                         page: SleepScreen(
-                            sleeptime: widget.sleeptime,
-                            bedtime: widget.bedtime),
+                          hours: widget.sleeptime,
+                          minutes: widget.bedtime,
+                          armode: widget.armode,
+                        ),
                       ),
                     );
                   },

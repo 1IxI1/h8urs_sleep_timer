@@ -106,7 +106,6 @@ class Dialogs {
         ],
       ),
       onPressed: () {
-        Navigator.of(context).pop();
         if (text == 'Yes') {
           LaunchApp.openApp(
             openStore: false,
@@ -118,7 +117,8 @@ class Dialogs {
               page: NoalarmsPage(),
             ),
           );
-        }
+        } else
+          Navigator.of(context).pop();
       },
     );
   }

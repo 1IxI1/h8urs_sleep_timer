@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:h8urs_sleep_timer/adds/balls_dark.dart';
 import 'package:h8urs_sleep_timer/adds/dialogs.dart';
 import 'package:h8urs_sleep_timer/pages/armode.dart';
+import 'package:h8urs_sleep_timer/pages/sleepscreen.dart';
 import 'package:h8urs_sleep_timer/pages/svmode.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
@@ -62,6 +63,14 @@ class _NoalarmsPageState extends State<NoalarmsPage> {
                   borderRadius: BorderRadius.circular(10)),
               message: "New alarm",
               child: InkWell(
+                onLongPress: () {
+                  Navigator.pushReplacement(
+                    context,
+                    FadeRoute(
+                      page: SleepScreen(hours: 1, minutes: 0, armode: false),
+                    ),
+                  );
+                },
                 onTap: () => showGeneralDialog(
                   barrierLabel: "",
                   barrierDismissible: true,

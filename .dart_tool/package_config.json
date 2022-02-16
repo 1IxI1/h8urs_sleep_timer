@@ -303,7 +303,7 @@
     },
     {
       "name": "just_audio",
-      "rootUri": "file:///home/victor/.pub-cache/hosted/pub.dartlang.org/just_audio-0.9.19",
+      "rootUri": "file:///home/victor/.pub-cache/hosted/pub.dartlang.org/just_audio-0.9.20",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -692,7 +692,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-02-12T10:35:51.079634Z",
+  "generated": "2022-02-16T13:28:19.044206Z",
   "generator": "pub",
   "generatorVersion": "2.16.0"
 }
